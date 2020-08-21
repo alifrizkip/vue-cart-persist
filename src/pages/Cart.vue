@@ -91,8 +91,6 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  data: () => ({}),
-
   computed: {
     ...mapState('cart', {
       carts: (state) => state.carts,

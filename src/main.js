@@ -20,4 +20,4 @@ new Vue({
   router,
   store,
   render: h => h(Base)
-}).$mount('#app')
+}).$mount('#main-root')

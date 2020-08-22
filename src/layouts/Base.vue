@@ -44,56 +44,10 @@
         <v-icon>mdi-cart</v-icon>
         <span class="mr-2">Cart</span>
       </v-btn>
-
-      <v-btn
-        class="mr-5"
-        color="success"
-        v-if="isLoggedIn === false"
-        @click="login"
-      >
-        <v-icon>mdi-login</v-icon>
-        <span class="mr-2">Login</span>
-      </v-btn>
-
-      <v-btn
-        class="mr-5"
-        color="error"
-        v-else
-        @click="logout"
-      >
-        <v-icon>mdi-power-standby</v-icon>
-        <span class="mr-2">Logout</span>
-      </v-btn>
     </v-app-bar>
 
     <v-main>
-      <v-container>
-        <v-alert type="success" v-if="isLoggedIn">
-          You're already logged in.
-        </v-alert>
-        <v-alert type="error" v-else>
-          You're not logged in.
-        </v-alert>
-      </v-container>
       <router-view></router-view>
     </v-main>
   </v-app>
 </template>
-<script>
-import { mapState, mapActions } from 'vuex';
-
-export default {
-  computed: {
-    ...mapState('auth', {
-      isLoggedIn: (state) => state.isLoggedIn,
-    }),
-  },
-
-  methods: {
-    ...mapActions('auth', [
-      'login',
-      'logout',
-    ]),
-  }
-}
-</script>
